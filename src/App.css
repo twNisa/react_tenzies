@@ -1,38 +1,112 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Karla:wght@700&display=swap');
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body{
+  background-color: #0B2434;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: "Inter", sans-serif;
+ 
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.App{
+  background-color: #F5F5F5;
+  border-radius: 10px;
+  padding: 4rem ;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+}
+
+.App h1{
+  font-family: "Karla", sans-serif;
+  font-weight: bold;
+  font-size: 2rem;
+}
+.App p{
+  max-width: 300px;
+  text-align: center;
+  font-size: 1.2rem;
+  color: #4A4E74;
+}
+.Board{
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 2rem;
+  margin: 3rem 0;
+}
+.cell{
+  display: grid;
+  height: 6rem;
+  width: 6rem;
+  grid-template-areas: 
+  "a . c"
+  "e g f"
+  "d . b";
+  border-radius: 5px;
+  font-size: 2rem;
+  font-weight: bold;
+  background-color: #ffffff;
+  box-shadow: 0 4px 2px 0 rgba(0, 0, 0, 0.5);;
+  cursor: pointer;
+  padding: .4rem;
+  transition: background-color .1s linear;
+}
+.cell:hover{
+  background-color: #59e3908e;
+}
+.cell.selected{
+  background-color: #59E391;
+}
+.dot{
+  display: block;
+  align-self: center;
+  justify-self: center;
+
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: black;
+}
+.dot:nth-child(2){
+  grid-area: b;
+}
+.dot:nth-child(3){
+  grid-area: c;
+}
+.dot:nth-child(4){
+  grid-area: d;
+}
+.dot:nth-child(5){
+  grid-area: e;
+}
+.dot:nth-child(6){
+  grid-area: f;
+}
+.dot:nth-child(odd):last-child{
+  grid-area: g;
+}
+button{
+  background-color: #5035ff;
   color: white;
+  padding: 1rem 2rem;
+  font-weight: bold;
+  font-size: 2rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 4px 7px 0 rgba(0,0,0,0.2);
+  transition: all .4s linear;
 }
-
-.App-link {
-  color: #61dafb;
+button:active{
+  background-color: #5035ffa8;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.stats{
+  margin-top: 1rem;
 }
